@@ -35,8 +35,18 @@ void draw() {
   }
   ball.hit();
   background(0);
+  
+  //Updating the the lives
   fill(204, 102, 0);
-  text(display, float(width/2-80), 25);
+  if( ball.getLives() <= 0 ) {
+    fill(255,0,0);
+    text("GAME OVER", float(width/2 -70), float(height/2));
+    ball.setSpeed(0);
+  } else {
+    text(display.substring(0, display.length() - (3-ball.getLives())), float(width/2-80), 25);
+  }
+  
+  //drawing the paddles
   fill(100, 30, 200);
   rect(10, ball.getY() -30, 20, 60);
   rect(width -30, mouseY -30, 20, 60);

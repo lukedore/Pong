@@ -20,13 +20,17 @@ class Ball {
     x += speed * cos(angle);
     y += speed * sin(angle);
   }
+  void setSpeed( float f )
+  {
+    speed = f;
+  }
   
   float getY() {
     return y;
   }
   
   void increaseSpeed() {
-    speed +=1;
+    speed +=0.4;
   }
   
   void setAngle(float a) {
@@ -58,11 +62,15 @@ class Ball {
     //check top and bottom
     if( y <= 0 || y >= height -10 ) {
       this.bounce();
-    } else if( x <= 30 || x >= (width-30) ) {
-      bounce();
     } else if( x > width + 10) {
       lives--;
-    }
+    } else if( x <= 30 || x >= (width-30) ) {
+      bounce();
+    } 
+  }
+  
+  int getLives() {
+    return lives;
   }
 }
   
