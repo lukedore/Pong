@@ -8,8 +8,8 @@ class Ball {
   Ball() {
     x = width/2;
     y = height/2;
-    speed = 3;
-    angle = radians( 25 );
+    speed = 2;
+    angle = radians( random(120, 240) );
   }
   
   void display() {
@@ -64,11 +64,31 @@ class Ball {
       this.bounce();
     } else if( x > width + 10) {
       lives--;
+      restart();
     } else if( x <= 30 || x >= (width-30) ) {
       bounce();
     } 
   }
+  void restart() {
+    x = width/2;
+    y = height/2;
+    speed = 3;
+    angle = radians( random(120, 240) );
+  }
   
+  void countdown() {
+    background(0);
+    for(int i = 3; i > 0; i-- ) {
+      textSize(48);
+      fill( 0, 255, 0 );
+      text( new String(""+i), float(width/2 -24), float(height/2) );
+      delay(1000);
+      background(0);
+    }
+    text( "GO!", width/2 -24, height/2 );
+    delay(500);
+    background(0);
+  }
   int getLives() {
     return lives;
   }

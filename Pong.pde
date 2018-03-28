@@ -33,9 +33,10 @@ void draw() {
       rrecty += 1;
     }*/
   }
-  ball.hit();
-  background(0);
   
+  ball.hit();
+  //ball.countdown();
+  background(0);
   //Updating the the lives
   fill(204, 102, 0);
   if( ball.getLives() <= 0 ) {
