@@ -3,6 +3,7 @@ class Ball {
   float y;
   float angle; //in degrees
   float speed;
+  int lives = 3;
   
   Ball() {
     x = width/2;
@@ -59,6 +60,8 @@ class Ball {
       this.bounce();
     } else if( x <= 30 || x >= (width-30) ) {
       bounce();
+    } else if( x > width + 10) {
+      lives--;
     }
   }
 }
