@@ -49,7 +49,9 @@ void draw() {
   
   //drawing the paddles
   fill(100, 30, 200);
-  rect(10, ball.getY() -30, 20, 60);
+  rectMode(CENTER);
+  rect(10, ball.getY(), 20, 60);
+  rectMode(CORNER);
   rect(width -30, mouseY -30, 20, 60);
   ball.move();
   ball.display();
